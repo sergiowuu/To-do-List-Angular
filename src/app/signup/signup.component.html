@@ -1,0 +1,8 @@
+<div class="signup">
+  <h1>Cadastre-se</h1>
+  <input [(ngModel)]="email" type="email" placeholder="Email" (keyup.enter)="signup()" />
+  <input [(ngModel)]="password" type="password" placeholder="Senha" (keyup.enter)="signup()" />
+  <button class="signup_button" (click)="signup()">Cadastrar</button>
+  <button class="login_button" (click)="redirectToLogin()"> Já possuo conta </button>
+  <div *ngIf="loginError" class="error-message">Email já existente</div>
+</div>

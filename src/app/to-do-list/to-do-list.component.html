@@ -1,0 +1,19 @@
+<div class="to-do-list">
+  <button class="logout" (click)="logout()">
+    <img src="assets/logout.webp" width="20px" height="20px" />
+  </button>
+  <h1>Lista de Tarefas</h1>
+  <input [(ngModel)]="newTask" (keyup.enter)="addTask()" placeholder="Adicionar uma tarefa" />
+  <ul>
+    <li *ngFor="let task of tasks; let i = index">
+      <span *ngIf="!task.editing">{{ task.name }}</span>
+      <input *ngIf="task.editing" [(ngModel)]="task.name" (keyup.enter)="saveTask(task.name, task.id)" />
+      <div class="buttons">
+        <button class="edit" (click)=" task.editing ? saveTask(task.name, task.id) : editTask(task.id)">
+          {{ task.editing ? "Salvar" : "Editar" }}
+        </button>
+        <button class="delete" (click)="deleteTask(task.id)">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>

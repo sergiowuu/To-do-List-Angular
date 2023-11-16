@@ -1,0 +1,10 @@
+<div class="login">
+  <button class="redirection" (click)="redirectSignup()">
+    <img src="assets/left-arrow.webp" width="20px" height="20px" />
+  </button>
+  <h1>Bem-Vindo de Volta</h1>
+  <input [(ngModel)]="email" type="email" placeholder="Email" (keyup.enter)="login()" />
+  <input [(ngModel)]="password" type="password" placeholder="Senha" (keyup.enter)="login()" />
+  <button class="login-button" (click)="login()">Entrar</button>
+  <div *ngIf="loginError" class="error-message">Usuário ou senha inválidos</div>
+</div>
